@@ -12,6 +12,7 @@ export class Login extends Component {
         header: null
     };
     render() {
+        console.log("Current ", this.props);
         return (
         <View style={{flex: 1}}>
                 <View style={{flex: 1, backgroundColor: '#082e6b'}} >
@@ -38,7 +39,10 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-    return state
+    return {
+        user: state.user,
+        posts: state.posts,
+    }
 };
 
 export default connect(mapStateToProps, { authInputChange, login })(Login);

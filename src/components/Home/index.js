@@ -24,7 +24,11 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-    return state
+    return {
+        user: state.user,
+        posts: state.posts,
+        nav: state.nav
+    }
 };
 
 export default connect(mapStateToProps)(Home);

@@ -14,7 +14,7 @@ const AuthStack = createStackNavigator({
 const AppStack = createStackNavigator({
 
   Ideas: {
-    screen: IdeaList,
+    screen: Home,
     navigationOptions: ({navigation}) => {
       return {
         title: 'Your IdeaPad',
@@ -23,7 +23,7 @@ const AppStack = createStackNavigator({
             type='evilicon'
             name='plus'
             size={30}
-            onPress={() => navigation.navigate('Home')}
+            onPress={() => navigation.navigate('Posts')}
             iconStyle={{paddingRight: 10}}
           />
         ),
