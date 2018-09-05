@@ -9,7 +9,7 @@ export default class LogoArea extends Component {
     render() {
         return (
             <View style={{flex: 1, flexDirection: 'column', justifyContent: "center", alignItems: 'center'}}>
-                <Image source={{uri: 'https://s3.amazonaws.com/addictcloud/r/rr.jpg'}}
+                <Image source={require("../../images/rr.jpg")}
                        style={{width: 50, height: 50, backgroundColor: '#fff'}} />
                 <Text style={[styles.title]}>Riftech Social</Text>
             </View>

@@ -18,14 +18,29 @@ export class Form extends Component {
         let formInvalid = this.props.user.error !== null;
         return (
             <View style={styles.main} >
+                <View>
+                    <Item style={styles.inputs} error={formInvalid}>
+                        <Input
+                            onChangeText={text => this.props.loginInputChange({'field': 'firstName', 'value': text})}
+                            placeholder='First Name'/>
+                    </Item>
+                    <Item style={styles.inputs} error={formInvalid}>
+                        <Input
+                            onChangeText={text => this.props.loginInputChange({'field': 'lastName', 'value': text})}
+                            placeholder='Surname'/>
+                    </Item>
+                </View>
                 <Item style={styles.inputs} error={formInvalid}>
-                    <Icon active name='mail' color='blue' />
                     <Input
-                        onChangeText={text => this.props.loginInputChange({'field': 'username', 'value': text})}
-                        placeholder='Username or Email'/>
+                        onChangeText={text => this.props.loginInputChange({'field': 'email', 'value': text})}
+                        secureTextEntry={true} placeholder='Mobile Number or email'/>
                 </Item>
                 <Item style={styles.inputs} error={formInvalid}>
-                    <Icon active name='lock' color='blue' />
+                    <Input
+                        onChangeText={text => this.props.loginInputChange({'field': 'email2', 'value': text})}
+                        secureTextEntry={true} placeholder='Re-Enter Phone or Email'/>
+                </Item>
+                <Item style={styles.inputs} error={formInvalid}>
                     <Input
                         onChangeText={text => this.props.loginInputChange({'field': 'password', 'value': text})}
                         secureTextEntry={true} placeholder='Password'/>
@@ -45,11 +60,11 @@ export class Form extends Component {
 
 const styles = StyleSheet.create({
     main: {
-        marginTop: 10,
-        padding: 30
+        paddingRight: 30,
+        paddingLeft: 30
     },
     inputs: {
-        marginTop: 20
+        marginTop: 10
     },
     submitBtn: {
         fontSize: 20,
@@ -60,7 +75,7 @@ const styles = StyleSheet.create({
         color: '#080808',
         textAlign: 'center',
         fontSize: 17,
-        marginTop: 30,
+        marginTop: 20,
         fontWeight: '400',
     }
 });

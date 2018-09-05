@@ -1,15 +1,22 @@
-import { USER_LOGIN } from './types';
+import { USER_LOGIN, LOGIN_INPUT_CHANGE } from './types';
 import {PropTypes} from "prop-types";
 import store from "../store";
 import axios from "axios/index";
 
 
-export const userLogin = (username, password) => {
-    let thisStore = store.getState();
+export const loginInputChange = ({ field, value }) => {
+    return {
+        type: LOGIN_INPUT_CHANGE,
+        payload: { field, value }
+    };
+};
+
+export const login = () => {
+    let state = store.getState();
     let url = "https://healthix.nbihosp.org/users/login/";
 
-    store.dispatch({
-        type: "USER_LOGIN",
-        payload: axios.post(url, {username: username, password: password})
-    });
+    return {
+        type: USER_LOGIN,
+        payload: axios.post(url, {username: state.user.username, password: state.user.password})
+    };
 };

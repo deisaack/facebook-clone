@@ -1,51 +1,9 @@
-// import firebase from 'firebase';
-import { USER_LOGIN } from './types';
 import {PropTypes} from "prop-types";
-import store from "../store";
-import axios from "axios/index";
+
+export * from "./userActions";
+export * from "./postActions";
 
 
-export const userLogin = (username, password) => {
-    let thisStore = store.getState();
-    let url = "https://healthix.nbihosp.org/users/login/";
-
-    store.dispatch({
-        type: "USER_LOGIN",
-        payload: axios.post(url, {username: username, password: password})
-    });
-};
-
-// export * from "./userActions";
-// export * from './postActions';
-
-
-// export const authInputChange = ({ field, value }) => {
-//   return {
-//     type: 'AUTH_INPUT_CHANGE',
-//     payload: { field, value } // field: 'email', 'text': 'blah@blah.com
-//   };
-// };
-//
-// export const login = ({ email, password }) => {
-//   return (dispatch) => {
-//     dispatch({type: 'LOADING'});
-//     firebase.auth().signInWithEmailAndPassword(email, password)
-//       .then(user => {
-//         dispatch({type: 'LOGIN_SUCCESS', payload: user});
-//       })
-//       .catch(function(error) {
-//         dispatch({type: 'LOGIN_FAILURE'});
-//       });
-//   }
-// };
-
-// export const ideaInputChange = ({ field, value }) => {
-//   return {
-//     type: 'IDEA_INPUT_CHANGE',
-//     payload: { field, value }
-//   };
-// };
-//
 // export const createIdea = ({title, idea}) => {
 //   const { uid } = firebase.auth().currentUser;
 //

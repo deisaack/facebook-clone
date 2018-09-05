@@ -3,14 +3,19 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import AppNavigator from './src';
 import store from "./src/store";
+import axios from "axios/index";
+import { Root } from "native-base";
+
 
 export default class App extends React.Component {
 
     render() {
         return (
-            <Provider store={store}>
-                <AppNavigator />
-            </Provider>
+                <Provider store={store}>
+                    <Root>
+                        <AppNavigator />
+                    </Root>
+                </Provider>
         );
     }
 }
